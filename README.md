@@ -10,6 +10,7 @@ To disable:
 ```Ahoy.third_party_service = :none```
 <br>
 <br>
+Analytics.identify() still needs to gets called from application.  
 
 
 # Ahoy
