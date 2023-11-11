@@ -1,3 +1,17 @@
+# FORK NOTES
+Modifies ahoy.track to send all events to Segment also. <br>
+Set this up so if we switch CDP's (rudderstack, etc), I can just write a new translator.<br>
+<br>
+To enable in project: <br>
+In ahoy.rb initializer, just add: 
+```Ahoy.third_party_service = :segment```
+<br>
+To disable:
+```Ahoy.third_party_service = :none```
+<br>
+<br>
+
+
 # Ahoy
 
 :fire: Simple, powerful, first-party analytics for Rails
