@@ -19,6 +19,7 @@ module Ahoy
         event.time = visit.started_at if event.time < visit.started_at
         begin
           event.save!
+          Ahoy::Translator.track_event(event) if Ahoy.third_party_service?
         rescue => e
           raise e unless unique_exception?(e)
         end

@@ -18,6 +18,9 @@ require_relative "ahoy/tracker"
 require_relative "ahoy/version"
 require_relative "ahoy/visit_properties"
 
+require_relative "ahoy/translator"
+require_relative "ahoy/translators/segment"
+
 require_relative "ahoy/engine" if defined?(Rails)
 
 module Ahoy
@@ -70,6 +73,9 @@ module Ahoy
 
   mattr_accessor :server_side_visits
   self.server_side_visits = true
+
+  mattr_accessor :third_party_service
+  self.third_party_service = :none
 
   mattr_accessor :quiet
   self.quiet = true
@@ -128,6 +134,10 @@ module Ahoy
 
   def self.cookies?
     cookies && cookies != :none
+  end
+
+  def self.third_party_service?
+    third_party_service && third_party_service != :none
   end
 
   def self.mask_ip(ip)
